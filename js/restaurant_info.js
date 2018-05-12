@@ -57,8 +57,9 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
 
   const image = document.getElementById('restaurant-img');
   image.className = 'restaurant-img'
-  image.src = DBHelper.imageUrlForRestaurant(restaurant);
-
+  image.alt = `${restaurant.name} restaurant, ${restaurant.cuisine_type} cuisine in ${restaurant.neighborhood}`;
+  image.src = `img/${restaurant.id}_sm.jpg`;//DBHelper.imageUrlForRestaurant{restaurant};
+  image.srcset = `img/${restaurant.id}_sm.jpg 400w, img/${restaurant.id}_md.jpg 600w, img/${restaurant.id}.jpg 800w`;
   const cuisine = document.getElementById('restaurant-cuisine');
   cuisine.innerHTML = restaurant.cuisine_type;
 
@@ -117,15 +118,15 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
  */
 createReviewHTML = (review) => {
   const li = document.createElement('li');
-  const name = document.createElement('p');
+  const name = document.createElement('h3');
   name.innerHTML = review.name;
   li.appendChild(name);
 
-  const date = document.createElement('p');
+  const date = document.createElement('span');
   date.innerHTML = review.date;
-  li.appendChild(date);
+  name.appendChild(date);
 
-  const rating = document.createElement('p');
+  const rating = document.createElement('em');
   rating.innerHTML = `Rating: ${review.rating}`;
   li.appendChild(rating);
 
