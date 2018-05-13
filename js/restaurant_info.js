@@ -120,6 +120,7 @@ createReviewHTML = (review) => {
   const li = document.createElement('li');
   const name = document.createElement('h3');
   name.innerHTML = review.name;
+  name.tabIndex = "0";
   li.appendChild(name);
 
   const date = document.createElement('span');

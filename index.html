@@ -19,21 +19,22 @@
 <body>
   <header>
     <nav>
-      <h1><a href="/index.html">Restaurant Reviews</a></h1>
+      <h1><a href="/index.html" title="View home page">Restaurant Reviews</a></h1>
     </nav>
   </header>
 
   <main id="maincontent">
     <section id="map-container">
-      <div id="map"></div>
+      <div id="map" role="application" aria-labelledby="Google Maps" aria-hidden="true" tabindex="-1"></div>
     </section>
+    
     <section>
       <div class="filter-options">
         <h2>Filter Results</h2>
-        <select id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()">
+        <select id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()" aria-labelledby="Select Neighborhoods">
           <option value="all">All Neighborhoods</option>
         </select>
-        <select id="cuisines-select" name="cuisines" onchange="updateRestaurants()">
+        <select id="cuisines-select" name="cuisines" onchange="updateRestaurants()" aria-labelledby="Select Cuisines">
           <option value="all">All Cuisines</option>
         </select>
       </div>
