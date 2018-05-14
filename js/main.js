@@ -179,6 +179,9 @@ addMarkersToMap = (restaurants = self.restaurants) => {
 
 
 
+/**
+ * Service Worker
+ */
 function registerServiceWorker() {
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', function() {
@@ -192,44 +195,4 @@ function registerServiceWorker() {
     return;
   }
 }
-
-
-
-/**
- * Service Worker
- */
-/*function registerServiceWorker() {
-  if (!navigator.serviceWorker) return;
-
-  navigator.serviceWorker.register('/sw.js').then(function (reg) {
-    if (!navigator.serviceWorker.controller) {
-      console.error("ServiceWorker not defined!");
-      return;
-    }
-
-    if (reg.waiting) {
-      console.log("is waiting: ",reg.waiting);
-      return;
-    }
-
-    if (reg.installing) {
-      console.log("is installing: ",reg.installing);
-      return;
-    }
-
-    reg.addEventListener('updatefound', function () {
-      console.log("new version, updated found: ",reg.installing);
-    });
-  });
-
-  // Ensure refresh is only called once.
-  // This works around a bug in "force update on reload".
-  var refreshing;
-  navigator.serviceWorker.addEventListener('controllerchange', function () {
-    if (refreshing) return;
-    window.location.reload();
-    refreshing = true;
-  });
-};*/
-
 registerServiceWorker();
