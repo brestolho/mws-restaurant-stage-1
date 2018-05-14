@@ -83,8 +83,14 @@ self.addEventListener('fetch', event => {
             });
           });
         });
-        //in case of some error, log it
-      }).catch(err => console.log(err, event.request))
+        //in case of some error -- such as no internet connection, log it and send some message to user
+      }).catch(function(err) {
+          console.log("What? ", err, event.request);
+          return new Response('<h1>Don\'t panic!</h1>'
+            + '<p>Sorry to inform you but you are without internet connetion.... Take a break.</p>', {
+            headers: {'Content-Type': 'text/html'}
+          });
+        })
 
     );
   }
