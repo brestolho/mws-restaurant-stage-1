@@ -83,7 +83,9 @@ self.addEventListener('fetch', event => {
             });
           });
         });
-      })
+        //in case of some error, log it
+      }).catch(err => console.log(err, event.request))
+
     );
   }
 });
